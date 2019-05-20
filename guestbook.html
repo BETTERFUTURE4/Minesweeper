@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>bumkyu11의 블로그</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <h2>박지우</h2>
+      <ul>
+        <li><a href="nonsetting.html">가입</a></li>
+        <li><a href="nonsetting.html">검색</a></li>
+        <li><a href="nonsetting.html">포트폴리오</a></li>
+        <li><a href="nonsetting.html">방명록</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <h1>박지우 홈피</h1>
+      <h3>박지우의 블로그를 탐방하세요!</h3>
+      <p> <script language="javascript">
+    function check()
+    {
+        for(var i=0; i<document.input.elements.length; i++)
+     {
+        if(document.input.elements[i].value == "")
+     {
+        alert("모든 값을 입력 하셔야 합니다. ");
+     return false;
+     }
+     }
+     document.input.submit();
+       }
+ </script>
+  </head>
+  <body>
+    <center>
+    <hr width="500" size="2" color="#5DC75D" noshade>
+       <h2>SOO's GUESTBOOK</h2>
+    <a href='/servlet/GB_list'>글목록</a>
+    <hr width="500" size="2" color="#5DC75D" noshade>
+ </center>
+ <form name="input" method="post" action="/servlet/GB_insert">
+    <table border="1" width="500" align="center"  cellpadding="3" cellspacing="1" bordercolor="#5DC75D">
+       <tr>
+       <td width="30%" align="center">글쓴이</td>
+    <td><input type="text" name="name" size="10"></td>
+    </tr>
+    <tr>
+       <td align="center">이메일</td>
+    <td><input type="text" name="email" size="10"></td>
+    </tr>
+          <tr>
+       <td align="center">글제목</td>
+    <td><input type="text" name="subject" size="10"></td>
+    </tr>
+    <tr>
+       <td align="center">글내용</td>
+    <td><textarea name="content" rows="5" cols="40"></textarea></td>
+    </tr>
+    <tr>
+       <td colspan="2" align="center">
+       <input type="button" value="전송" onclick="check()">
+    <input type="reset" value="다시입력">
+    </td>
+    </tr>
+    </table>
+    <br>
+    <hr width="500" size="2" color="#5DC75D" noshade> </p>
+    </div>
+  </div>
+</body>
+</html>

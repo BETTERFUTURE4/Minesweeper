@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traeper.guestbookapp.dao.GuestBookDAO">
+
+	<resultMap type="com.traeper.guestbookapp.vo.GuestBookVO" id="GuestBookVOResult">
+		<id property="guestbookId" column="guestbook_id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="registerDate" column="register_date" />
+		<result property="password" column="password" />
+	</resultMap>
+
+	<select id="getGuestbooks" resultMap="GuestBookVOResult">
+		SELECT
+		guestbook_id, title, content, register_date, password
+		FROM
+		guestbook
+	</select>
+
+	<select id="getGuestbook" parameterType="String" resultMap="GuestBookVOResult">
+		SELECT
+		guestbook_id, title, content, register_date, password
+		FROM
+		guestbook
+		WHERE
+		guestbook_id=#{guestbookId}
+	</select>
+
+	<insert id="createGuestbook" parameterType="com.traeper.guestbookapp.vo.GuestBookVO"
+		useGeneratedKeys="true" keyProperty="guestbook_id">
+		INSERT INTO
+		guestbook(title, content, register_date, password)
+		VALUES
+		(#{title}, #{content}, now(), #{password})
+	</insert>
+
+	<update id="updateGuestbook" parameterType="com.traeper.guestbookapp.vo.GuestBookVO">
+		UPDATE
+		guestbook
+		SET
+		title=#{title},
+		content=#{content}
+		WHERE
+		guestbook_id=#{guestbookId}
+	</update>
+
+	<delete id="deleteGuestbook" parameterType="Integer">
+		DELETE FROM
+		guestbook
+		WHERE
+		guestbook_id=#{guestbookId}
+	</delete>
+</mapper>
